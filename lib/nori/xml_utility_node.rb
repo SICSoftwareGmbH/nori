@@ -139,10 +139,10 @@ class Nori
         t = typecast_value(inner_html)
         t = advanced_typecasting(t) if t.is_a?(String) && @options[:advanced_typecasting]
 
-        if t.is_a?(String)
-          t = StringWithAttributes.new(t)
-          t.attributes = attributes
-        end
+        #if t.is_a?(String)
+        #  t = StringWithAttributes.new(t)
+        #  t.attributes = attributes
+        #end
 
         return { name => t }
       else
@@ -171,7 +171,7 @@ class Nori
             end
           end
           out.merge! prefixed_attributes unless attributes.empty?
-          out = out.empty? ? @options[:empty_tag_value] : out
+          out = out.empty? ? @options[:empty_tag_value] : out.reject{ |_k, v| v.nil? }
         end
 
         if @type && out.nil?
