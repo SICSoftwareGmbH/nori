@@ -51,7 +51,8 @@ class Nori
     # 2004-04-12T13:20:00Z          1:20 pm on April 12, 2004, Coordinated Universal Time (UTC)
     # 2004-04-12T13:20:15.5Z        1:20 pm and 15.5 seconds on April 12, 2004, Coordinated Universal Time (UTC)
 
-    XS_DATE_TIME = /^-?\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:?\d{2})?$/
+    # using savon1 regex for compatibility reasons
+    XS_DATE_TIME = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[\.Z]?\d*[\-\+]?\d*:?\d*$/
 
     def self.typecasts
       @@typecasts
