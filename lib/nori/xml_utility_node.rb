@@ -171,7 +171,7 @@ class Nori
             end
           end
           out.merge! prefixed_attributes unless attributes.empty?
-          out = out.empty? ? @options[:empty_tag_value] : out.reject{ |_k, v| v.nil? }
+          out = out.empty? ? @options[:empty_tag_value] : out
         end
 
         if @type && out.nil?
